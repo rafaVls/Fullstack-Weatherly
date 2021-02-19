@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from "react";
 
 export default function App() {
-	const [location, setLocation] = useState({});
+	interface Coordinates {
+		latitude: number | null;
+		longitude: number | null;
+	}
+
+	const [location, setLocation] = useState<Coordinates>({
+		latitude: null,
+		longitude: null
+	});
 
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition(
 			pos => {
 				let coordinates = pos.coords;
-				setLocation(coordinates);
+				const { latitude, longitude } = coordinates;
+				setLocation({ latitude, longitude });
 			},
 			err => {
 				console.warn(`Error(${err.code}): ${err.message}`);
@@ -22,7 +31,8 @@ export default function App() {
 
 	return (
 		<section>
-			<h3>Hello World</h3>
+			<h3>{location.latitude}</h3>
+			<h3>{location.longitude}</h3>
 		</section>
 	);
 }
