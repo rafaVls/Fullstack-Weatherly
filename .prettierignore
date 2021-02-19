@@ -10,3 +10,6 @@ node_modules
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Had to ignore because it was causing issues with Regex
+APICalls.ts
