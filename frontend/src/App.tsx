@@ -29,8 +29,17 @@ export default function App() {
 		);
 	}, []);
 
+	async function handleClick() {
+		const res = await fetch(
+			`http://localhost:5000/${location.latitude}&${location.longitude}`
+		);
+		const data = await res.json();
+		console.log(data);
+	}
+
 	return (
 		<section>
+			<button onClick={() => handleClick()}>Click!</button>
 			<h3>{location.latitude}</h3>
 			<h3>{location.longitude}</h3>
 		</section>
