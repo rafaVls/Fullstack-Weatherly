@@ -6,10 +6,36 @@ export default function App() {
 		longitude: number | null;
 	}
 
+	interface Forecast {
+		timezone: string | null;
+		timezone_offset: number | null;
+		current: object | null;
+		hourly: object[] | null;
+		daily: object[] | null;
+	}
+
+	interface CityInfo {
+		long_name: string | null;
+		short_name: string | null;
+	}
+
 	const [location, setLocation] = useState<Coordinates>({
 		latitude: null,
 		longitude: null
 	});
+	const [forecast, setForecast] = useState<Forecast>({
+		timezone: null,
+		timezone_offset: null,
+		current: null,
+		hourly: null,
+		daily: null
+	});
+	const [cityInfo, setCityInfo] = useState<CityInfo[]>([
+		{
+			long_name: null,
+			short_name: null
+		}
+	]);
 
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition(
@@ -29,19 +55,43 @@ export default function App() {
 		);
 	}, []);
 
-	async function handleClick() {
-		const res = await fetch(
-			`http://localhost:5000/${location.latitude}&${location.longitude}`
-		);
-		const data = await res.json();
-		console.log(data);
-	}
+	useEffect(() => {
+		async function fetchData(
+			APIName: string,
+			position: Coordinates,
+			stateFunction: Function
+		) {
+			const lat = position.latitude;
+			const lon = position.longitude;
+			let APICall: string;
+
+			switch (APIName) {
+				case "oneCall":
+					APICall = `/onecall/${lat}&${lon}`;
+					break;
+
+				case "reverseGeocoding":
+					APICall = `/reverse/${lat}&${lon}`;
+					break;
+
+				default:
+					APICall = "";
+					break;
+			}
+			const res = await fetch(APICall);
+			const { data } = await res.json();
+			stateFunction(data);
+		}
+
+		if (location.latitude) {
+			fetchData("oneCall", location, setForecast);
+			fetchData("reverseGeocoding", location, setCityInfo);
+		}
+	}, [location]);
 
 	return (
 		<section>
-			<button onClick={() => handleClick()}>Click!</button>
-			<h3>{location.latitude}</h3>
-			<h3>{location.longitude}</h3>
+			<h3>Your weather here</h3>
 		</section>
 	);
 }
