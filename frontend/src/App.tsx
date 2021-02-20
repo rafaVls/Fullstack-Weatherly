@@ -1,24 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Coordinates, Forecast, CityInfo } from "./common/types";
 
-export default function App() {
-	interface Coordinates {
-		latitude: number | null;
-		longitude: number | null;
-	}
-
-	interface Forecast {
-		timezone: string | null;
-		timezone_offset: number | null;
-		current: object | null;
-		hourly: object[] | null;
-		daily: object[] | null;
-	}
-
-	interface CityInfo {
-		long_name: string | null;
-		short_name: string | null;
-	}
-
+function useLocationAndForecast() {
 	const [location, setLocation] = useState<Coordinates>({
 		latitude: null,
 		longitude: null
@@ -89,9 +72,21 @@ export default function App() {
 		}
 	}, [location]);
 
+	return {
+		location,
+		forecast,
+		cityInfo
+	};
+}
+
+export default function App() {
+	const { location, forecast, cityInfo } = useLocationAndForecast();
+
 	return (
 		<section>
-			<h3>Your weather here</h3>
+			<h3>{location.latitude}</h3>
+			<h3>{forecast.timezone}</h3>
+			<h3>{cityInfo[0].long_name}</h3>
 		</section>
 	);
 }
