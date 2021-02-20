@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Coordinates, Forecast, CityInfo } from "./common/types";
+import CurrentData from "./components/CurrentData";
+
+import styles from "./styles/App.module.css";
 
 function useLocationAndForecast() {
 	const [location, setLocation] = useState<Coordinates>({
@@ -83,10 +86,16 @@ export default function App() {
 	const { location, forecast, cityInfo } = useLocationAndForecast();
 
 	return (
-		<section>
-			<h3>{location.latitude}</h3>
-			<h3>{forecast.timezone}</h3>
-			<h3>{cityInfo[0].long_name}</h3>
-		</section>
+		<>
+			{forecast.current && cityInfo[0] ? (
+				<section className={styles.App}>
+					<CurrentData forecast={forecast} cityInfo={cityInfo} />
+				</section>
+			) : (
+				<section className={styles.loader_container}>
+					<div className={styles.loader}></div>
+				</section>
+			)}
+		</>
 	);
 }
