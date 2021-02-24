@@ -22,9 +22,11 @@ html {
 }
 
 .App {
+	min-height: 100vh;
+
 	display: grid;
-	grid-template-columns: 130px auto 130px;
-	grid-template-rows: 40px auto 20px auto 40px;
+	grid-template-columns: 10% auto 10%;
+	grid-template-rows: 10% auto 10%;
 }
 
 .loader_container {
@@ -197,5 +199,16 @@ html {
 			0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
 			-1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
 			-2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+	}
+}
+
+@media only screen and (max-width: 880px) {
+	html {
+		font-size: 12px;
+	}
+
+	.App {
+		grid-template-columns: 1% auto 1%;
+		grid-template-rows: 1% auto 1%;
 	}
 }
