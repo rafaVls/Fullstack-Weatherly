@@ -5,5 +5,5 @@ export function unixToDate(
 	const miliseconds = unixTimestamp * 1000;
 	const date = new Date(miliseconds);
 
-	return date.toLocaleDateString("en-GB", { timeZone: tzString });
+	return date.toLocaleTimeString("en-GB", { timeZone: tzString });
 }
