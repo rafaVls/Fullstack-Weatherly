@@ -1,0 +1,20 @@
+ul {
+	grid-row: 3/4;
+	font-size: 1.5rem;
+	margin: 0 20%;
+
+	display: flex;
+	justify-content: space-between;
+
+	/* border: 3px solid yellow; */
+}
+
+.forecastType {
+	color: burlywood;
+}
+
+.forecastValue {
+	text-align: end;
+
+	color: var(--container-values-color);
+}

@@ -27,20 +27,3 @@
 .dataContainer ul {
 	list-style: none;
 }
-
-.additionalContent {
-	grid-row: 3/4;
-	display: flex;
-	justify-content: space-evenly;
-	font-size: 1.5rem;
-}
-
-.dataList {
-	width: 50%;
-	display: flex;
-	justify-content: space-around;
-}
-
-.values {
-	color: var(--container-values-color);
-}
