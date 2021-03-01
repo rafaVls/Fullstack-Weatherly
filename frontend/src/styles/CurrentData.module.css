@@ -8,22 +8,23 @@
 	background-color: var(--container-bg-color);
 	border: var(--container-border);
 	border-radius: 45px;
-	padding: 15px;
+	padding: 10px;
 
 	display: grid;
-	grid-template-rows: auto 5% auto 5% auto;
+	grid-template-rows: auto auto auto;
+	row-gap: 5%;
+}
+
+.dataContainer h3 {
+	font-size: 2.75rem;
+}
+
+.dataContainer ul {
+	list-style: none;
 }
 
 .mainContent {
 	grid-row: 1/2;
 	display: flex;
 	justify-content: space-evenly;
-}
-
-.dataContainer h3 {
-	font-size: 3rem;
-}
-
-.dataContainer ul {
-	list-style: none;
 }
