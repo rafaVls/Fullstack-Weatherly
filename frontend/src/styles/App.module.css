@@ -7,6 +7,7 @@
 	--containers-height: calc(100vh - 70px);
 	--container-bg-color: rgba(0, 0, 0, 0.3);
 	--container-border: 3px solid #80ffdb;
+	--container-types-color: burlywood;
 	--container-values-color: #00ced1;
 }
 
