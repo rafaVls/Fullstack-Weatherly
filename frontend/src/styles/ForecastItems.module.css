@@ -16,3 +16,9 @@ ul {
 
 	color: var(--container-values-color);
 }
+
+@media only screen and (max-width: 560px) {
+	ul {
+		margin: 5%;
+	}
+}

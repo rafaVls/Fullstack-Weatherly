@@ -28,3 +28,14 @@
 	display: flex;
 	justify-content: space-evenly;
 }
+
+@media only screen and (max-width: 560px) {
+	.mainContent {
+		padding: 5%;
+		justify-content: space-between;
+	}
+
+	.dataContainer {
+		padding: 0;
+	}
+}
