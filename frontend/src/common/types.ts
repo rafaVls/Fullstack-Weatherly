@@ -23,9 +23,84 @@ export interface Coordinates {
 interface Forecast {
 	timezone: string | null;
 	timezone_offset: number | null;
-	current: object | null;
-	hourly: object[] | null;
-	daily: object[] | null;
+	current: Current | null;
+	hourly: Hourly[] | null;
+	daily: Daily[] | null;
+}
+
+interface Current {
+	dt: number | null;
+	sunrise: number | null;
+	sunset: number | null;
+	temp: number | null;
+	feels_like: number | null;
+	pressure: number | null;
+	humidity: number | null;
+	dew_point: number | null;
+	uvi: number | null;
+	clouds: number | null;
+	visibility: number | null;
+	wind_speed: number | null;
+	wind_deg: number | null;
+	weather: Weather[] | null;
+}
+
+interface Hourly {
+	dt: number | null;
+	temp: number | null;
+	feels_like: number | null;
+	pressure: number | null;
+	humidity: number | null;
+	dew_point: number | null;
+	uvi: number | null;
+	clouds: number | null;
+	visibility: number | null;
+	wind_speed: number | null;
+	wind_deg: number | null;
+	weather: Weather[] | null;
+	pop: number | null;
+	rain: { "1h": number } | null;
+}
+
+interface Daily {
+	dt: number | null;
+	sunrise: number | null;
+	sunset: number | null;
+	temp: Temp | null;
+	feels_like: Feels_like | null;
+	pressure: number | null;
+	humidity: number | null;
+	dew_point: number | null;
+	wind_speed: number | null;
+	wind_deg: number | null;
+	weather: Weather[] | null;
+	clouds: number | null;
+	pop: number | null;
+	rain: number | null;
+	uvi: number | null;
+}
+
+interface Temp {
+	day: number | null;
+	min: number | null;
+	max: number | null;
+	night: number | null;
+	eve: number | null;
+	morn: number | null;
+}
+
+interface Feels_like {
+	day: number | null;
+	night: number | null;
+	eve: number | null;
+	morn: number | null;
+}
+
+interface Weather {
+	id: number | null;
+	main: string | null;
+	description: string | null;
+	icon: string | null;
 }
 
 interface CityInfo {
