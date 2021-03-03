@@ -2,7 +2,7 @@ export type State = {
 	latitude: number | null;
 	longitude: number | null;
 	forecast: Forecast | null;
-	cityInfo: CityInfo | null;
+	cityInfo: CityInfo[] | null;
 	error?: object;
 	setCoordinates: (latitude: number, longitude: number) => void;
 	getForecast: (position: Coordinates) => void;
@@ -12,7 +12,7 @@ export type State = {
 export type Actions =
 	| { type: "SET_COORDINATES"; latlon: Coordinates }
 	| { type: "GET_FORECAST"; forecast: Forecast }
-	| { type: "GET_CITY_INFO"; cityInfo: CityInfo }
+	| { type: "GET_CITY_INFO"; cityInfo: CityInfo[] }
 	| { type: "ERROR"; error: object };
 
 export interface Coordinates {
@@ -106,4 +106,5 @@ interface Weather {
 interface CityInfo {
 	long_name: string | null;
 	short_name: string | null;
+	types: string[] | null;
 }
