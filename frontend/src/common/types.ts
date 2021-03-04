@@ -29,78 +29,81 @@ interface Forecast {
 }
 
 interface Current {
-	dt: number | null;
-	sunrise: number | null;
-	sunset: number | null;
-	temp: number | null;
-	feels_like: number | null;
-	pressure: number | null;
-	humidity: number | null;
-	dew_point: number | null;
-	uvi: number | null;
-	clouds: number | null;
-	visibility: number | null;
-	wind_speed: number | null;
-	wind_deg: number | null;
-	weather: Weather[] | null;
+	dt: number;
+	sunrise: number;
+	sunset: number;
+	temp: number;
+	feels_like: number;
+	pressure: number;
+	humidity: number;
+	dew_point: number;
+	uvi: number;
+	clouds: number;
+	visibility: number;
+	wind_speed: number;
+	wind_gust?: number;
+	wind_deg: number;
+	weather: Weather[];
 }
 
 interface Hourly {
-	dt: number | null;
-	temp: number | null;
-	feels_like: number | null;
-	pressure: number | null;
-	humidity: number | null;
-	dew_point: number | null;
-	uvi: number | null;
-	clouds: number | null;
-	visibility: number | null;
-	wind_speed: number | null;
-	wind_deg: number | null;
-	weather: Weather[] | null;
-	pop: number | null;
-	rain: { "1h": number } | null;
+	dt: number;
+	temp: number;
+	feels_like: number;
+	pressure: number;
+	humidity: number;
+	dew_point: number;
+	uvi: number;
+	clouds: number;
+	visibility: number;
+	wind_speed: number;
+	wind_gust?: number;
+	wind_deg: number;
+	weather: Weather[];
+	pop: number;
+	rain?: { "1h": number };
 }
 
 interface Daily {
-	dt: number | null;
-	sunrise: number | null;
-	sunset: number | null;
-	temp: Temp | null;
-	feels_like: Feels_like | null;
-	pressure: number | null;
-	humidity: number | null;
-	dew_point: number | null;
-	wind_speed: number | null;
-	wind_deg: number | null;
-	weather: Weather[] | null;
-	clouds: number | null;
-	pop: number | null;
-	rain: number | null;
-	uvi: number | null;
+	dt: number;
+	sunrise: number;
+	sunset: number;
+	temp: Temp;
+	feels_like: Feels_like;
+	pressure: number;
+	humidity: number;
+	dew_point: number;
+	wind_speed: number;
+	wind_deg: number;
+	weather: Weather[];
+	clouds: number;
+	pop: number;
+	rain?: number;
+	snow?: number;
+	uvi: number;
 }
 
 interface Temp {
-	day: number | null;
-	min: number | null;
-	max: number | null;
-	night: number | null;
-	eve: number | null;
-	morn: number | null;
+	day: number;
+	min: number;
+	max: number;
+	night: number;
+	eve: number;
+	morn: number;
 }
 
 interface Feels_like {
-	day: number | null;
-	night: number | null;
-	eve: number | null;
-	morn: number | null;
+	day: number;
+	night: number;
+	eve: number;
+	morn: number;
 }
 
 interface Weather {
-	id: number | null;
-	main: string | null;
-	description: string | null;
-	icon: string | null;
+	id: number;
+	main: string;
+	description: string;
+	icon: string;
 }
 
 interface CityInfo {
