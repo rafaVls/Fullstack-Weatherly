@@ -1,4 +1,4 @@
-import React, { createContext, ReactChild, useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
 import { State, Coordinates } from "../common/types";
 
