@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 import styles from "../styles/ForecastItems.module.css";
 
 import { unixToDate } from "../utils/format";
 
-export default function ForecastItems({ forecast }: any) {
+export default function ForecastItems() {
+	const { forecast } = useContext(GlobalContext);
+
 	return (
 		<ul>
 			<li>
@@ -24,7 +27,7 @@ export default function ForecastItems({ forecast }: any) {
 					{unixToDate(forecast.current.sunset, forecast.timezone)}
 				</p>
 				<p className={styles.forecastValue}>
-					{parseFloat(forecast.current.wind_speed).toFixed(1)}m/s
+					{forecast.current.wind_speed.toFixed(2)}m/s
 				</p>
 			</li>
 		</ul>

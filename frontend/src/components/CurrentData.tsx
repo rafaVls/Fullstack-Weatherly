@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import ForecastItems from "./ForecastItems";
 
@@ -9,12 +9,16 @@ export default function CurrentData() {
 
 	return (
 		<section className={styles.dataContainer}>
-			<section className={styles.mainContent}>
-				<h3>Temperature °K</h3>
-				<h3>Alpine, CA</h3>
-			</section>
+			{cityInfo && (
+				<section className={styles.mainContent}>
+					<h3>{forecast.current.temp} °K</h3>
+					<h3>
+						{cityInfo[0].long_name}, {cityInfo[2].short_name}
+					</h3>
+				</section>
+			)}
 
-			<ForecastItems forecast={forecast} />
+			<ForecastItems />
 		</section>
 	);
 }
