@@ -1,8 +1,40 @@
-import React from "react";
-import GlobalProvider from "./context/GlobalState";
+import React, { useContext, useEffect } from "react";
 import CurrentData from "./components/CurrentData";
+import { GlobalContext } from "./context/GlobalState";
 
 import styles from "./styles/App.module.css";
+
+function useLocationAndForecast() {
+	const {
+		forecast,
+		cityInfo,
+		getForecast,
+		getCityInfo,
+		setCoordinates
+	} = useContext(GlobalContext);
+
+	useEffect(() => {
+		navigator.geolocation.getCurrentPosition(
+			pos => {
+				const coordinates = pos.coords;
+				const { latitude, longitude } = coordinates;
+				setCoordinates(latitude, longitude);
+				getForecast(coordinates);
+				getCityInfo(coordinates);
+			},
+			err => {
+				console.warn(`Error(${err.code}): ${err.message}`);
+			},
+			{
+				enableHighAccuracy: true,
+				timeout: 10000,
+				maximumAge: 0
+			}
+		);
+	}, []);
+
+	return { forecast, cityInfo };
+}
 
 // function useLocationAndForecast() {
 // 	const [location, setLocation] = useState<Coordinates>({
@@ -65,20 +97,19 @@ import styles from "./styles/App.module.css";
 // }
 
 export default function App() {
+	const { forecast, cityInfo } = useLocationAndForecast();
+
 	return (
-		<GlobalProvider>
-			<section className={styles.App}>
-				<CurrentData />
-			</section>
-			{/* {forecast.current && cityInfo[0] ? (
+		<>
+			{forecast != null && cityInfo != null ? (
 				<section className={styles.App}>
-					<CurrentData forecast={forecast} cityInfo={cityInfo} />
+					<CurrentData />
 				</section>
 			) : (
 				<section className={styles.loader_container}>
 					<div className={styles.loader}></div>
 				</section>
-			)} */}
-		</GlobalProvider>
+			)}
+		</>
 	);
 }
