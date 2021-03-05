@@ -13,7 +13,8 @@ export default function CurrentData() {
 			<section className={styles.mainContent}>
 				<img
 					src={`http://openweathermap.org/img/wn/${forecast.current.weather[0].icon}@2x.png`}
-					alt=""
+					title={forecast.current.weather[0].main}
+					alt={forecast.current.weather[0].description}
 				/>
 				<h3>{forecast.current.temp} °K</h3>
 				<h3>
