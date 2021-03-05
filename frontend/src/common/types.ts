@@ -106,7 +106,7 @@ interface Weather {
 	icon: string;
 }
 
-interface CityInfo {
+export interface CityInfo {
 	long_name: string | null;
 	short_name: string | null;
 	types: string[] | null;

@@ -3,6 +3,8 @@ import { GlobalContext } from "../context/GlobalState";
 import ForecastItems from "./ForecastItems";
 
 import { getTodayString } from "../utils/date";
+import { getStateShort } from "../utils/sorting";
+
 import styles from "../styles/CurrentData.module.css";
 
 export default function CurrentData() {
@@ -19,7 +21,7 @@ export default function CurrentData() {
 				<h3>{forecast.current.temp} °K</h3>
 				<h3>
 					{getTodayString()} <br />
-					{cityInfo[0].long_name}, {cityInfo[2].short_name}
+					{cityInfo[0].long_name}, {getStateShort(cityInfo)}
 				</h3>
 			</section>
 
