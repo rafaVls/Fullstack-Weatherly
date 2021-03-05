@@ -3,18 +3,44 @@ ul {
 	font-size: 1.5rem;
 	margin: 0 10%;
 
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	column-gap: 10%;
+}
+
+ul li {
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 }
 
-.forecastType {
+ul li p:first-child {
 	color: var(--container-types-color);
 }
 
-.forecastValue {
-	text-align: end;
-
+ul li p:last-child {
 	color: var(--container-values-color);
+}
+
+.left {
+	grid-column: 1/2;
+}
+
+.right {
+	grid-column: 2/3;
+}
+
+.firstRow {
+	grid-row: 1/2;
+}
+
+.secondRow {
+	grid-row: 2/3;
+}
+
+.thirdRow {
+	grid-row: 3/4;
 }
 
 @media only screen and (max-width: 560px) {
