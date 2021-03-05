@@ -9,14 +9,15 @@ import styles from "../styles/CurrentData.module.css";
 
 export default function CurrentData() {
 	const { forecast, cityInfo } = useContext(GlobalContext);
+	const currentWeather = forecast.current.weather[0];
 
 	return (
 		<section className={styles.dataContainer}>
 			<section className={styles.mainContent}>
 				<img
-					src={`http://openweathermap.org/img/wn/${forecast.current.weather[0].icon}@2x.png`}
-					title={forecast.current.weather[0].main}
-					alt={forecast.current.weather[0].description}
+					src={`http://openweathermap.org/img/wn/${currentWeather.icon}@2x.png`}
+					title={currentWeather.main}
+					alt={currentWeather.description}
 				/>
 				<h3>{forecast.current.temp} °K</h3>
 				<h3>
