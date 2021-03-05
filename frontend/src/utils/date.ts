@@ -1,7 +1,12 @@
 export function getTodayString(language: string = "en-US"): string {
 	const today = new Date();
-	const options = { year: "numeric", month: "short", day: "numeric" };
-	const todayString = today.toLocaleString(language, options).replace(",", "");
+	const todayString = today
+		.toLocaleString(language, {
+			year: "numeric",
+			month: "short",
+			day: "numeric"
+		})
+		.replace(",", "");
 
 	let weekday;
 	if (language.includes("es")) {
