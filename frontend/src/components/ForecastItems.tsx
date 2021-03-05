@@ -9,28 +9,34 @@ export default function ForecastItems() {
 
 	return (
 		<ul>
-			<li>
-				<p className={styles.forecastType}>Precipitation</p>
-				<p className={styles.forecastType}>Humidity</p>
-				<p className={styles.forecastType}>Feels like</p>
-				<p className={styles.forecastType}>Sunrise</p>
-				<p className={styles.forecastType}>Sunset</p>
-				<p className={styles.forecastType}>Wind</p>
+			<li className={`${styles.firstRow} ${styles.left}`}>
+				<p>Precipitation</p>
+				<p>{forecast.daily[0].pop}%</p>
 			</li>
 
-			<li>
-				<p className={styles.forecastValue}>{forecast.daily[0].pop}%</p>
-				<p className={styles.forecastValue}>{forecast.current.humidity}%</p>
-				<p className={styles.forecastValue}>{forecast.current.feels_like} °K</p>
-				<p className={styles.forecastValue}>
-					{unixToDate(forecast.current.sunrise, forecast.timezone)}
-				</p>
-				<p className={styles.forecastValue}>
-					{unixToDate(forecast.current.sunset, forecast.timezone)}
-				</p>
-				<p className={styles.forecastValue}>
-					{forecast.current.wind_speed.toFixed(2)}m/s
-				</p>
+			<li className={`${styles.secondRow} ${styles.left}`}>
+				<p>Humidity</p>
+				<p>{forecast.current.humidity}%</p>
+			</li>
+
+			<li className={`${styles.thirdRow} ${styles.left}`}>
+				<p>Wind</p>
+				<p>{forecast.current.wind_speed.toFixed(2)}m/s</p>
+			</li>
+
+			<li className={` ${styles.firstRow} ${styles.right}`}>
+				<p>Feels like</p>
+				<p>{forecast.current.feels_like} °K</p>
+			</li>
+
+			<li className={` ${styles.secondRow} ${styles.right}`}>
+				<p>Sunrise</p>
+				<p>{unixToDate(forecast.current.sunrise, forecast.timezone)}</p>
+			</li>
+
+			<li className={` ${styles.thirdRow} ${styles.right}`}>
+				<p>Sunset</p>
+				<p>{unixToDate(forecast.current.sunset, forecast.timezone)}</p>
 			</li>
 		</ul>
 	);
