@@ -3,7 +3,7 @@ import { GlobalContext } from "../context/GlobalState";
 import ForecastItems from "./ForecastItems";
 
 import { getTodayString } from "../utils/date";
-import { getStateShort } from "../utils/sorting";
+import { getStateShort, getDayIcon } from "../utils/helperMethods";
 
 import styles from "../styles/CurrentData.module.css";
 
@@ -15,7 +15,7 @@ export default function CurrentData() {
 		<section className={styles.dataContainer}>
 			<section className={styles.mainContent}>
 				<img
-					src={`http://openweathermap.org/img/wn/${currentWeather.icon}@2x.png`}
+					src={getDayIcon(currentWeather.icon)}
 					title={currentWeather.main}
 					alt={currentWeather.description}
 				/>
