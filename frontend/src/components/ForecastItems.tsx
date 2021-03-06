@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import ForecastItem from "./ForecastItem";
 import styles from "../styles/ForecastItems.module.css";
 
 import { unixToDate } from "../utils/format";
@@ -10,36 +11,30 @@ export default function ForecastItems() {
 	const timezone = forecast.timezone;
 
 	return (
-		<ul>
-			<li className={`${styles.firstRow} ${styles.left}`}>
-				<p>Precipitation</p>
-				<p>{forecast.daily[0].pop}%</p>
-			</li>
+		<ul className={styles.itemsContainer}>
+			<ForecastItem data={`${forecast.daily[0].pop}%`}>
+				Precipitation
+			</ForecastItem>
 
-			<li className={`${styles.secondRow} ${styles.left}`}>
-				<p>Humidity</p>
-				<p>{currentForecast.humidity}%</p>
-			</li>
+			<ForecastItem data={`${currentForecast.humidity}%`}>
+				Humidity
+			</ForecastItem>
 
-			<li className={`${styles.thirdRow} ${styles.left}`}>
-				<p>Wind</p>
-				<p>{currentForecast.wind_speed.toFixed(2)}m/s</p>
-			</li>
+			<ForecastItem data={`${currentForecast.wind_speed.toFixed(2)}m/s`}>
+				Wind
+			</ForecastItem>
 
-			<li className={` ${styles.firstRow} ${styles.right}`}>
-				<p>Feels like</p>
-				<p>{currentForecast.feels_like} °K</p>
-			</li>
+			<ForecastItem data={`${currentForecast.feels_like} °K`}>
+				Feels like
+			</ForecastItem>
 
-			<li className={` ${styles.secondRow} ${styles.right}`}>
-				<p>Sunrise</p>
-				<p>{unixToDate(currentForecast.sunrise, timezone)}</p>
-			</li>
+			<ForecastItem data={`${unixToDate(currentForecast.sunrise, timezone)}`}>
+				Sunrise
+			</ForecastItem>
 
-			<li className={` ${styles.thirdRow} ${styles.right}`}>
-				<p>Sunset</p>
-				<p>{unixToDate(currentForecast.sunset, timezone)}</p>
-			</li>
+			<ForecastItem data={`${unixToDate(currentForecast.sunset, timezone)}`}>
+				Sunset
+			</ForecastItem>
 		</ul>
 	);
 }

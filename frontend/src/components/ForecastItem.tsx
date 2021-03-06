@@ -2,7 +2,8 @@ import React from "react";
 
 interface Props {
 	children: string;
-	data: string | number;
+	data: string;
+	className?: string;
 }
 
 export default function ForecastItem({ children, data }: Props) {
