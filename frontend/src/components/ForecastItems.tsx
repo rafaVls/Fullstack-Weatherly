@@ -6,6 +6,8 @@ import { unixToDate } from "../utils/format";
 
 export default function ForecastItems() {
 	const { forecast } = useContext(GlobalContext);
+	const currentForecast = forecast.current;
+	const timezone = forecast.timezone;
 
 	return (
 		<ul>
@@ -16,27 +18,27 @@ export default function ForecastItems() {
 
 			<li className={`${styles.secondRow} ${styles.left}`}>
 				<p>Humidity</p>
-				<p>{forecast.current.humidity}%</p>
+				<p>{currentForecast.humidity}%</p>
 			</li>
 
 			<li className={`${styles.thirdRow} ${styles.left}`}>
 				<p>Wind</p>
-				<p>{forecast.current.wind_speed.toFixed(2)}m/s</p>
+				<p>{currentForecast.wind_speed.toFixed(2)}m/s</p>
 			</li>
 
 			<li className={` ${styles.firstRow} ${styles.right}`}>
 				<p>Feels like</p>
-				<p>{forecast.current.feels_like} °K</p>
+				<p>{currentForecast.feels_like} °K</p>
 			</li>
 
 			<li className={` ${styles.secondRow} ${styles.right}`}>
 				<p>Sunrise</p>
-				<p>{unixToDate(forecast.current.sunrise, forecast.timezone)}</p>
+				<p>{unixToDate(currentForecast.sunrise, timezone)}</p>
 			</li>
 
 			<li className={` ${styles.thirdRow} ${styles.right}`}>
 				<p>Sunset</p>
-				<p>{unixToDate(forecast.current.sunset, forecast.timezone)}</p>
+				<p>{unixToDate(currentForecast.sunset, timezone)}</p>
 			</li>
 		</ul>
 	);
