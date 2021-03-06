@@ -20,6 +20,8 @@ export default function CurrentData() {
 					alt={currentWeather.description}
 				/>
 				<h3>{forecast.current.temp} °K</h3>
+				<h4 title="Min temperature">{forecast.daily[0].temp.min} °K</h4>
+				<h4 title="Max temperature">{forecast.daily[0].temp.max} °K</h4>
 				<h3>
 					{getTodayString()} <br />
 					{cityInfo[0].long_name}, {getStateShort(cityInfo)}
