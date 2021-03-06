@@ -10,6 +10,7 @@ import styles from "../styles/CurrentData.module.css";
 export default function CurrentData() {
 	const { forecast, cityInfo } = useContext(GlobalContext);
 	const currentWeather = forecast.current.weather[0];
+	const todaysTemperature = forecast.daily[0].temp;
 
 	return (
 		<section className={styles.dataContainer}>
@@ -21,8 +22,8 @@ export default function CurrentData() {
 				/>
 				<section className={styles.temperatures}>
 					<h3>{forecast.current.temp} °K</h3>
-					<h4 title="Min temperature">{forecast.daily[0].temp.min} °K</h4>
-					<h4 title="Max temperature">{forecast.daily[0].temp.max} °K</h4>
+					<h4 title="Min temperature">{todaysTemperature.min} °K</h4>
+					<h4 title="Max temperature">{todaysTemperature.max} °K</h4>
 				</section>
 				<h3>
 					{getTodayString()} <br />
