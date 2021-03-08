@@ -12,7 +12,7 @@ export default function ForecastItems() {
 
 	return (
 		<ul className={styles.itemsContainer}>
-			<ForecastItem data={`${forecast.daily[0].pop}%`}>
+			<ForecastItem data={`${forecast.hourly[0].pop * 100}%`}>
 				Precipitation
 			</ForecastItem>
 
