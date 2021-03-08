@@ -22,8 +22,8 @@ export default function CurrentData() {
 				/>
 				<hgroup className={styles.temperatures}>
 					<h1>{forecast.current.temp} °K</h1>
-					<h2 title="Min temperature">{todaysTemperature.min} °K</h2>
-					<h2 title="Max temperature">{todaysTemperature.max} °K</h2>
+					<h2 title="Min temperature">Min: {todaysTemperature.min} °K</h2>
+					<h2 title="Max temperature">Max: {todaysTemperature.max} °K</h2>
 				</hgroup>
 				<h3>
 					{getTodayString()} <br />
