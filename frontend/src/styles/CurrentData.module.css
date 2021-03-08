@@ -52,11 +52,11 @@
 }
 
 .temperatures h2:nth-child(2) {
-	color: #00bfff;
+	color: #89c4f4;
 }
 
 .temperatures h2:nth-child(3) {
-	color: #e6a522;
+	color: #ffa07a;
 }
 
 @media only screen and (max-width: 560px) {
