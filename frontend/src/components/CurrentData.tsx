@@ -20,11 +20,11 @@ export default function CurrentData() {
 					title={currentWeather.main}
 					alt={currentWeather.description}
 				/>
-				<section className={styles.temperatures}>
+				<hgroup className={styles.temperatures}>
 					<h1>{forecast.current.temp} °K</h1>
 					<h2 title="Min temperature">{todaysTemperature.min} °K</h2>
 					<h2 title="Max temperature">{todaysTemperature.max} °K</h2>
-				</section>
+				</hgroup>
 				<h3>
 					{getTodayString()} <br />
 					{cityInfo[0].long_name}, {getStateShort(cityInfo)}
