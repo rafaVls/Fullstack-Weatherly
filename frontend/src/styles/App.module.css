@@ -5,7 +5,7 @@
 
 	/* 70 px is the footer's height */
 	--containers-height: calc(100vh - 70px);
-	--container-bg-color: rgb(34, 5, 40, 0.65);
+	--container-bg-color: rgb(34, 5, 40, 0.8);
 	--container-border: 3px solid #80ffdb;
 	--container-types-color: burlywood;
 	--container-values-color: #00ced1;

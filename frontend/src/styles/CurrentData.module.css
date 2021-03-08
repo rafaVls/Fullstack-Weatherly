@@ -49,15 +49,15 @@
 }
 
 .temperatures h2 {
-	opacity: 0.7;
+	opacity: 0.8;
 }
 
 .temperatures h2:nth-child(2) {
-	color: #89c4f4;
+	color: #0ff;
 }
 
 .temperatures h2:nth-child(3) {
-	color: #ffa07a;
+	color: #e6cc22;
 }
 
 @media only screen and (max-width: 560px) {
