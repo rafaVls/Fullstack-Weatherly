@@ -21,7 +21,7 @@ export default function CurrentData() {
 					alt={currentWeather.description}
 				/>
 				<section className={styles.temperatures}>
-					<h3>{forecast.current.temp} °K</h3>
+					<h1>{forecast.current.temp} °K</h1>
 					<h4 title="Min temperature">{todaysTemperature.min} °K</h4>
 					<h4 title="Max temperature">{todaysTemperature.max} °K</h4>
 				</section>
