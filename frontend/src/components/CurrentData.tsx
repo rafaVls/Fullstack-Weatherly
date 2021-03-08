@@ -18,7 +18,7 @@ export default function CurrentData() {
 				<img
 					src={getDayIcon(currentWeather.icon)}
 					title={currentWeather.main}
-					alt={currentWeather.description}
+					alt={`Current weather condition: ${currentWeather.description}`}
 				/>
 				<hgroup className={styles.temperatures}>
 					<h1>{forecast.current.temp} °K</h1>
