@@ -18,13 +18,13 @@ export default function CurrentData() {
 				<img
 					src={getDayIcon(currentWeather.icon)}
 					title={currentWeather.main}
-					alt={currentWeather.description}
+					alt={`Current weather condition: ${currentWeather.description}`}
 				/>
-				<section className={styles.temperatures}>
-					<h3>{forecast.current.temp} °K</h3>
-					<h4 title="Min temperature">{todaysTemperature.min} °K</h4>
-					<h4 title="Max temperature">{todaysTemperature.max} °K</h4>
-				</section>
+				<hgroup className={styles.temperatures}>
+					<h1>{forecast.current.temp} °K</h1>
+					<h2 title="Min temperature">Min: {todaysTemperature.min} °K</h2>
+					<h2 title="Max temperature">Max: {todaysTemperature.max} °K</h2>
+				</hgroup>
 				<h3>
 					{getTodayString()} <br />
 					{cityInfo[0].long_name}, {getStateShort(cityInfo)}
