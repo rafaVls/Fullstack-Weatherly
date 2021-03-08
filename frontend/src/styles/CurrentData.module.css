@@ -15,7 +15,8 @@
 	row-gap: 5%;
 }
 
-.dataContainer h1 {
+.dataContainer h1,
+.dataContainer h3 {
 	font-size: 2rem;
 }
 
