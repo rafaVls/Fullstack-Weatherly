@@ -1,0 +1,24 @@
+.temperatures {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, auto);
+	column-gap: 30px;
+	row-gap: 5px;
+}
+
+.temperatures h1 {
+	grid-column: 1/3;
+	justify-self: center;
+}
+
+.temperatures h2 {
+	opacity: 0.8;
+}
+
+.temperatures h2:nth-child(2) {
+	color: #0ff;
+}
+
+.temperatures h2:nth-child(3) {
+	color: #e6cc22;
+}
