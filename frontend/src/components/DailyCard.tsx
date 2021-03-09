@@ -16,7 +16,7 @@ export default function DailyCard({ day }: Props) {
 	return (
 		<section className={styles.container}>
 			<WeatherIcon weather={forecast.daily[day].weather[0]} />
-			<h1>{getDailyInitials(day)}</h1>
+			<p>{getDailyInitials(day)}</p>
 			<Temperatures typeOfTemps="forecast" day={day} />
 		</section>
 	);

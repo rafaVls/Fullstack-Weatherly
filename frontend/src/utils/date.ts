@@ -39,6 +39,11 @@ export function getTodayString(language: string = "en-US"): string {
 
 export function getDailyInitials(day: number, language: string = "en-US") {
 	const weekday = weekdaysLanguage(language);
+	const dayToDisplay = today.getDay() + day;
 
-	return weekday[today.getDay() + day].substring(0, 3);
+	if (dayToDisplay > 6) {
+		return weekday[dayToDisplay - 7].substring(0, 3);
+	}
+
+	return weekday[dayToDisplay].substring(0, 3);
 }

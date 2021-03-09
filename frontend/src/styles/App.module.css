@@ -28,7 +28,7 @@ html {
 	min-height: var(--containers-height);
 	display: grid;
 	grid-template-columns: 10% auto 10%;
-	grid-template-rows: 10% auto 5%;
+	grid-template-rows: 5% auto 5%;
 }
 
 .loader_container {
