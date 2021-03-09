@@ -1,4 +1,7 @@
-export function getTodayString(language: string = "en-US"): string {
+export function getTodayString(
+	isDaily: boolean = false,
+	language: string = "en-US"
+): string {
 	const today = new Date();
 	const todayString = today
 		.toLocaleString(language, {
@@ -29,6 +32,10 @@ export function getTodayString(language: string = "en-US"): string {
 			"Friday",
 			"Saturday"
 		];
+	}
+
+	if (isDaily) {
+		return weekday[today.getDay()].substring(0, 3);
 	}
 
 	return `${weekday[today.getDay()]}, ${todayString}`;
