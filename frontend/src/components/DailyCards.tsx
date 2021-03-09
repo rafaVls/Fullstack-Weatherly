@@ -13,8 +13,8 @@ export default function DailyCards() {
 			return;
 		}
 
-		return <DailyCard key={index + 1} day={index} />;
+		return <DailyCard key={index} day={index} />;
 	});
 
-	return <section className={styles.container}>{Cards}</section>;
+	return <ul className={styles.container}>{Cards}</ul>;
 }

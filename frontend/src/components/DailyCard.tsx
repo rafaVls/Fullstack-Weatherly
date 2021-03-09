@@ -14,10 +14,10 @@ export default function DailyCard({ day }: Props) {
 	const { forecast } = useContext(GlobalContext);
 
 	return (
-		<section className={styles.container}>
+		<li className={styles.card}>
 			<WeatherIcon weather={forecast.daily[day].weather[0]} />
 			<p>{getDailyInitials(day)}</p>
 			<Temperatures typeOfTemps="forecast" day={day} />
-		</section>
+		</li>
 	);
 }
