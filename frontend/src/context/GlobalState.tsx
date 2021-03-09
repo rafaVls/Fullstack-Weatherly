@@ -29,12 +29,15 @@ export default function GlobalProvider({ children }: any) {
 		});
 	}
 
-	async function getForecast(position: Coordinates) {
+	async function getForecast(
+		position: Coordinates,
+		units: string = "imperial"
+	) {
 		try {
 			const lat = position.latitude;
 			const lon = position.longitude;
 
-			const res = await fetch(`/onecall/${lat}&${lon}`);
+			const res = await fetch(`/onecall/${lat}&${lon}&${units}`);
 			const { data } = await res.json();
 
 			dispatch({

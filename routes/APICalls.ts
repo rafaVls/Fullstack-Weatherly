@@ -2,10 +2,10 @@ const express = require("express");
 const fetch = require("node-fetch");
 const router = express.Router();
 
-router.get("/onecall/:lat(-?[0-9]{0,2}[\.]?[0-9]{1,100})&:lon(-?[0-9]{1,3}[\.]?[0-9]{1,100})", async (req, res) => {
+router.get("/onecall/:lat(-?[0-9]{0,2}[\.]?[0-9]{1,100})&:lon(-?[0-9]{1,3}[\.]?[0-9]{1,100})&:units([A-Z]+)", async (req, res) => {
 	try {
 		const response = await fetch(
-			`https://api.openweathermap.org/data/2.5/onecall?lat=${req.params.lat}&lon=${req.params.lon}&exclude=minutely,alerts&appid=${process.env.ONECALL_API_KEY}`
+			`https://api.openweathermap.org/data/2.5/onecall?lat=${req.params.lat}&lon=${req.params.lon}&exclude=minutely,alerts&units=${req.params.units}&appid=${process.env.ONECALL_API_KEY}`
 			);
 		const {lat, lon, ...rest} = await response.json();
 
