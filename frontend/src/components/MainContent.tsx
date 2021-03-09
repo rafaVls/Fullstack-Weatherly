@@ -14,11 +14,11 @@ export default function MainContent() {
 
 	return (
 		<section className={styles.mainContent}>
-			<img
+			{/* <img
 				src={getDayIcon(currentWeather.icon)}
 				title={currentWeather.main}
 				alt={`Current weather condition: ${currentWeather.description}`}
-			/>
+			/> */}
 			<hgroup className={styles.temperatures}>
 				<h1>{forecast.current.temp} °K</h1>
 				<h2 title="Min temperature">Min: {todaysTemperature.min} °K</h2>
