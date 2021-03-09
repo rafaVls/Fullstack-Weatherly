@@ -8,6 +8,7 @@ import styles from "../styles/MainContent.module.css";
 
 export default function MainContent() {
 	const { forecast, cityInfo } = useContext(GlobalContext);
+
 	const currentWeather = forecast.current.weather[0];
 	const todaysTemperature = forecast.daily[0].temp;
 
