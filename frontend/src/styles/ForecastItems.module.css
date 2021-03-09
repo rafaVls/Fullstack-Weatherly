@@ -7,6 +7,10 @@
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(3, 1fr);
 	column-gap: 20%;
+
+	border-bottom: 2px solid darkslategray;
+	border-top: 2px solid darkslategrey;
+	padding: 30px 0;
 }
 
 .itemsContainer li {
