@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import ForecastItems from "./ForecastItems";
+import MainContent from "./MainContent";
 
 import { getTodayString } from "../utils/date";
 import { getStateShort, getDayIcon } from "../utils/helperMethods";
@@ -8,13 +9,13 @@ import { getStateShort, getDayIcon } from "../utils/helperMethods";
 import styles from "../styles/CurrentData.module.css";
 
 export default function CurrentData() {
-	const { forecast, cityInfo } = useContext(GlobalContext);
-	const currentWeather = forecast.current.weather[0];
-	const todaysTemperature = forecast.daily[0].temp;
+	// const { forecast, cityInfo } = useContext(GlobalContext);
+	// const currentWeather = forecast.current.weather[0];
+	// const todaysTemperature = forecast.daily[0].temp;
 
 	return (
 		<section className={styles.dataContainer}>
-			<section className={styles.mainContent}>
+			{/* <section className={styles.mainContent}>
 				<img
 					src={getDayIcon(currentWeather.icon)}
 					title={currentWeather.main}
@@ -29,8 +30,8 @@ export default function CurrentData() {
 					{getTodayString()} <br />
 					{cityInfo[0].long_name}, {getStateShort(cityInfo)}
 				</h3>
-			</section>
-
+			</section> */}
+			<MainContent />
 			<ForecastItems />
 		</section>
 	);
