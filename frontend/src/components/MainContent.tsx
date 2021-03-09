@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import WeatherIcon from "./WeatherIcon";
 
 import { getTodayString } from "../utils/date";
-import { getStateShort, getDayIcon } from "../utils/helperMethods";
+import { getStateShort } from "../utils/helperMethods";
 
 import styles from "../styles/MainContent.module.css";
 
@@ -14,11 +15,7 @@ export default function MainContent() {
 
 	return (
 		<section className={styles.mainContent}>
-			{/* <img
-				src={getDayIcon(currentWeather.icon)}
-				title={currentWeather.main}
-				alt={`Current weather condition: ${currentWeather.description}`}
-			/> */}
+			<WeatherIcon weather={currentWeather} />
 			<hgroup className={styles.temperatures}>
 				<h1>{forecast.current.temp} °K</h1>
 				<h2 title="Min temperature">Min: {todaysTemperature.min} °K</h2>
