@@ -10,31 +10,44 @@ export default function ForecastItems() {
 	const currentForecast = forecast.current;
 	const timezone = forecast.timezone;
 
-	return (
-		<ul className={styles.itemsContainer}>
-			<ForecastItem data={`${forecast.hourly[0].pop * 100}%`}>
-				Precipitation
-			</ForecastItem>
+	const forecastItems = [
+		{
+			id: 1,
+			data: `${forecast.hourly[0].pop * 100}%`,
+			children: "Precipitation"
+		},
+		{
+			id: 2,
+			data: `${currentForecast.humidity}%`,
+			children: "Humidity"
+		},
+		{
+			id: 3,
+			data: `${currentForecast.wind_speed.toFixed(2)}m/s`,
+			children: "Wind"
+		},
+		{
+			id: 4,
+			data: `${currentForecast.feels_like} °K`,
+			children: "Feels like"
+		},
+		{
+			id: 5,
+			data: `${unixToDate(currentForecast.sunrise, timezone)}`,
+			children: "Sunrise"
+		},
+		{
+			id: 6,
+			data: `${unixToDate(currentForecast.sunset, timezone)}`,
+			children: "Sunset"
+		}
+	];
 
-			<ForecastItem data={`${currentForecast.humidity}%`}>
-				Humidity
-			</ForecastItem>
+	const forecastComponents = forecastItems.map(item => (
+		<ForecastItem key={item.id} data={item.data}>
+			{item.children}
+		</ForecastItem>
+	));
 
-			<ForecastItem data={`${currentForecast.wind_speed.toFixed(2)}m/s`}>
-				Wind
-			</ForecastItem>
-
-			<ForecastItem data={`${currentForecast.feels_like} °K`}>
-				Feels like
-			</ForecastItem>
-
-			<ForecastItem data={`${unixToDate(currentForecast.sunrise, timezone)}`}>
-				Sunrise
-			</ForecastItem>
-
-			<ForecastItem data={`${unixToDate(currentForecast.sunset, timezone)}`}>
-				Sunset
-			</ForecastItem>
-		</ul>
-	);
+	return <ul className={styles.itemsContainer}>{forecastComponents}</ul>;
 }
