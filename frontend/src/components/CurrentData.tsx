@@ -10,7 +10,7 @@ export default function CurrentData() {
 		<section className={styles.dataContainer}>
 			<MainContent />
 			<ForecastItems />
-			<DailyCard day={7} />
+			<DailyCard day={1} />
 		</section>
 	);
 }

@@ -1,19 +1,8 @@
-export function getTodayString(
-	isDaily: boolean = false,
-	language: string = "en-US"
-): string {
-	const today = new Date();
-	const todayString = today
-		.toLocaleString(language, {
-			year: "numeric",
-			month: "short",
-			day: "numeric"
-		})
-		.replace(",", "");
+const today = new Date();
 
-	let weekday;
+function weekdaysLanguage(language: string): string[] {
 	if (language.includes("es")) {
-		weekday = [
+		return [
 			"Domingo",
 			"Lunes",
 			"Martes",
@@ -23,7 +12,7 @@ export function getTodayString(
 			"Sábado"
 		];
 	} else {
-		weekday = [
+		return [
 			"Sunday",
 			"Monday",
 			"Tuesday",
@@ -33,10 +22,23 @@ export function getTodayString(
 			"Saturday"
 		];
 	}
+}
 
-	if (isDaily) {
-		return weekday[today.getDay()].substring(0, 3);
-	}
+export function getTodayString(language: string = "en-US"): string {
+	const weekday = weekdaysLanguage(language);
+	const todayString = today
+		.toLocaleString(language, {
+			year: "numeric",
+			month: "short",
+			day: "numeric"
+		})
+		.replace(",", "");
 
 	return `${weekday[today.getDay()]}, ${todayString}`;
+}
+
+export function getDailyInitials(day: number, language: string = "en-US") {
+	const weekday = weekdaysLanguage(language);
+
+	return weekday[today.getDay() + day].substring(0, 3);
 }

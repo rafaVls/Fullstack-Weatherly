@@ -24,6 +24,6 @@ export default function Temperatures({ typeOfTemps, day }: Props) {
 			</hgroup>
 		);
 	} else {
-		return <h1>{forecast.daily[day].temp.day}</h1>;
+		return <h1>{forecast.daily[day].temp.day} °K</h1>;
 	}
 }
