@@ -24,10 +24,6 @@ export default function Temperatures({ typeOfTemps, day }: Props) {
 			</hgroup>
 		);
 	} else {
-		return (
-			<hgroup className={styles.temperatures}>
-				<h1>{forecast.daily[day].temp}</h1>
-			</hgroup>
-		);
+		return <h1>{forecast.daily[day].temp.day}</h1>;
 	}
 }
