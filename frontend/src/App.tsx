@@ -50,9 +50,9 @@ export default function App() {
 	return (
 		<>
 			{forecast && cityInfo ? (
-				<section className={styles.App}>
+				<main className={styles.App}>
 					<CurrentData />
-				</section>
+				</main>
 			) : (
 				<section className={styles.loader_container}>
 					<div className={styles.loader}></div>

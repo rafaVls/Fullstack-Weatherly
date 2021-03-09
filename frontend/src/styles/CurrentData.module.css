@@ -12,7 +12,7 @@
 
 	display: grid;
 	grid-template-rows: auto auto auto;
-	row-gap: 5%;
+	row-gap: 3%;
 }
 
 .dataContainer ul {

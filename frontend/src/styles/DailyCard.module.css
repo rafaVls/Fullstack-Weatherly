@@ -1,6 +1,6 @@
 .card {
 	min-width: 10%;
-	max-width: 15%;
+	max-height: 180px;
 	padding: 5px;
 	font-size: 1.25rem;
 	line-height: 1.5;
@@ -8,8 +8,27 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 
 	border: 1px solid black;
 	border-radius: 25px;
 	box-shadow: 2px 2px 5px black;
 }
+
+@media only screen and (min-width: 1900px) {
+	.card {
+		max-height: none;
+	}
+}
+
+/* @media only screen and (max-width: 880px) {
+	.card {
+		min-width: none;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.container {
+		flex-direction: column;
+	}
+} */

@@ -6,7 +6,7 @@
 	--icon-color: #6bb9f0;
 
 	/* 70 px is the footer's height */
-	--containers-height: calc(100vh - 70px);
+	--containers-height: 100vh;
 	--container-bg-color: rgb(34, 5, 40, 0.8);
 	--container-border: 3px solid #80ffdb;
 	--container-types-color: burlywood;
@@ -24,11 +24,6 @@ html {
 	font-family: "Roboto", sans-serif;
 	color: var(--text-color);
 	font-size: 16px;
-}
-
-h1 {
-	font-weight: 900;
-	font-size: 4rem;
 }
 
 .App {
@@ -211,7 +206,7 @@ h1 {
 	}
 }
 
-@media only screen and (max-width: 880px) {
+@media only screen and (max-width: 1070px) {
 	html {
 		font-size: 12px;
 	}
@@ -222,8 +217,13 @@ h1 {
 	}
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 640px) {
 	html {
 		font-size: 10px;
+	}
+
+	.App {
+		grid-template-columns: 1% auto 1%;
+		grid-template-rows: 1% auto 1%;
 	}
 }
