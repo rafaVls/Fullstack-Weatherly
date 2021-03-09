@@ -13,3 +13,16 @@
 .mainContent h2 {
 	font-size: 1rem;
 }
+
+.mainContent hgroup,
+.mainContent h3 {
+	padding: 15px;
+	border-radius: 25px;
+	transition: all 0.5s;
+}
+
+.mainContent hgroup:hover,
+.mainContent h3:hover {
+	transform: scale(1.1);
+	background-color: #43154d;
+}

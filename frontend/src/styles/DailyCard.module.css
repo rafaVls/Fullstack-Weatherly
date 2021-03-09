@@ -13,6 +13,13 @@
 	border: 1px solid black;
 	border-radius: 25px;
 	box-shadow: 2px 2px 5px black;
+
+	transition: all 0.5s ease-out;
+}
+
+.card:hover {
+	background-color: #43154d;
+	transform: scale(1.1);
 }
 
 @media only screen and (min-width: 1900px) {
@@ -20,15 +27,3 @@
 		max-height: none;
 	}
 }
-
-/* @media only screen and (max-width: 880px) {
-	.card {
-		min-width: none;
-	}
-}
-
-@media only screen and (max-width: 400px) {
-	.container {
-		flex-direction: column;
-	}
-} */
