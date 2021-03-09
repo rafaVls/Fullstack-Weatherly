@@ -4,3 +4,12 @@
 	align-items: center;
 	justify-content: space-evenly;
 }
+
+.mainContent h1,
+.mainContent h3 {
+	font-size: 2rem;
+}
+
+.mainContent h2 {
+	font-size: 1rem;
+}

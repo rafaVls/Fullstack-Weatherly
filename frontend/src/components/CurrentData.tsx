@@ -1,9 +1,9 @@
 import React from "react";
 import ForecastItems from "./ForecastItems";
 import MainContent from "./MainContent";
+import DailyCard from "./DailyCard";
 
 import styles from "../styles/CurrentData.module.css";
-import DailyCard from "./DailyCard";
 
 export default function CurrentData() {
 	return (

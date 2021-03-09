@@ -15,15 +15,6 @@
 	row-gap: 5%;
 }
 
-.dataContainer h1,
-.dataContainer h3 {
-	font-size: 2rem;
-}
-
-.dataContainer h2 {
-	font-size: 1rem;
-}
-
 .dataContainer ul {
 	list-style: none;
 }

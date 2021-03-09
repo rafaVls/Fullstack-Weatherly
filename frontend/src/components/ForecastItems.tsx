@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import ForecastItem from "./ForecastItem";
-import styles from "../styles/ForecastItems.module.css";
 
 import { unixToDate } from "../utils/format";
+import styles from "../styles/ForecastItems.module.css";
 
 export default function ForecastItems() {
 	const { forecast } = useContext(GlobalContext);

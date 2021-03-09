@@ -5,7 +5,6 @@ import Temperatures from "./Temperatures";
 
 import { getTodayString } from "../utils/date";
 import { getStateShort } from "../utils/helperMethods";
-
 import styles from "../styles/MainContent.module.css";
 
 export default function MainContent() {
