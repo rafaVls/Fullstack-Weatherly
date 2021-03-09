@@ -99,7 +99,7 @@ interface Feels_like {
 	morn: number;
 }
 
-interface Weather {
+export interface Weather {
 	id: number;
 	main: string;
 	description: string;
