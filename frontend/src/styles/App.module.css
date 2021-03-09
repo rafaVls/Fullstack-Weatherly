@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
 :root {
 	--body-bg-color: #252525;
 	--text-color: #fffacd;
@@ -19,9 +21,14 @@
 
 html {
 	background-color: var(--body-bg-color);
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-family: "Roboto", sans-serif;
 	color: var(--text-color);
 	font-size: 16px;
+}
+
+h1 {
+	font-weight: 900;
+	font-size: 4rem;
 }
 
 .App {
