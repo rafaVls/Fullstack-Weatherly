@@ -3,15 +3,16 @@ export type State = {
 	longitude: number | null;
 	forecast: Forecast | null;
 	cityInfo: CityInfo[] | null;
+	units: string;
 	error?: object;
 	setCoordinates?: (latitude: number, longitude: number) => void;
-	getForecast?: (position: Coordinates, units?: string) => void;
+	getForecast?: (position: Coordinates, unitSystem?: string) => void;
 	getCityInfo?: (position: Coordinates) => void;
 };
 
 export type Actions =
 	| { type: "SET_COORDINATES"; latlon: Coordinates }
-	| { type: "GET_FORECAST"; forecast: Forecast }
+	| { type: "GET_FORECAST"; forecast: Forecast; units: string }
 	| { type: "GET_CITY_INFO"; cityInfo: CityInfo[] }
 	| { type: "ERROR"; error: object };
 

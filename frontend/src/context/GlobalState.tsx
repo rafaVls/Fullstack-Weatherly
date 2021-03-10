@@ -6,7 +6,8 @@ let initialState: State = {
 	latitude: null,
 	longitude: null,
 	forecast: null,
-	cityInfo: null
+	cityInfo: null,
+	units: "°F"
 };
 
 // Create context
@@ -28,18 +29,20 @@ export default function GlobalProvider({ children }: any) {
 
 	async function getForecast(
 		position: Coordinates,
-		units: string = "imperial"
+		unitSystem: string = "imperial"
 	) {
 		try {
 			const lat = position.latitude;
 			const lon = position.longitude;
+			const units = unitSystem === "imperial" ? "°F" : "°C";
 
-			const res = await fetch(`/onecall/${lat}&${lon}&${units}`);
+			const res = await fetch(`/onecall/${lat}&${lon}&${unitSystem}`);
 			const { data } = await res.json();
 
 			dispatch({
 				type: "GET_FORECAST",
-				forecast: data
+				forecast: data,
+				units: units
 			});
 		} catch (error) {
 			dispatch({
@@ -76,6 +79,7 @@ export default function GlobalProvider({ children }: any) {
 				longitude: state.longitude,
 				forecast: state.forecast,
 				cityInfo: state.cityInfo,
+				units: state.units,
 				setCoordinates,
 				getForecast,
 				getCityInfo

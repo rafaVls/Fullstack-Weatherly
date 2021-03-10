@@ -12,7 +12,8 @@ export default function AppReducer(state: State, action: Actions): State {
 		case "GET_FORECAST":
 			return {
 				...state,
-				forecast: action.forecast
+				forecast: action.forecast,
+				units: action.units
 			};
 
 		case "GET_CITY_INFO":
