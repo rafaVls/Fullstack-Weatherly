@@ -18,11 +18,12 @@
 .mainContent h3 {
 	padding: 15px;
 	border-radius: 25px;
-	transition: all 0.5s;
+	transition: all 0.5s ease-out;
 }
 
 .mainContent hgroup:hover,
 .mainContent h3:hover {
 	transform: scale(1.1);
 	background-color: #43154d;
+	box-shadow: -5px 5px 5px black;
 }

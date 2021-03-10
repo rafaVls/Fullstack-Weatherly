@@ -6,10 +6,7 @@ let initialState: State = {
 	latitude: null,
 	longitude: null,
 	forecast: null,
-	cityInfo: null,
-	setCoordinates: (latitude: number, longitude: number) => {},
-	getForecast: (position: Coordinates) => {},
-	getCityInfo: (position: Coordinates) => {}
+	cityInfo: null
 };
 
 // Create context

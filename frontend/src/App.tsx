@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
-import CurrentData from "./components/CurrentData";
 import { GlobalContext } from "./context/GlobalState";
+import CurrentData from "./components/CurrentData";
+import HamburgerMenu from "./components/HamburgerMenu";
 
 import styles from "./styles/App.module.css";
 
@@ -51,6 +52,7 @@ export default function App() {
 		<>
 			{forecast && cityInfo ? (
 				<main className={styles.App}>
+					<HamburgerMenu />
 					<CurrentData />
 				</main>
 			) : (

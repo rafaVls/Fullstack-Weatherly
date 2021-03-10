@@ -4,9 +4,9 @@ export type State = {
 	forecast: Forecast | null;
 	cityInfo: CityInfo[] | null;
 	error?: object;
-	setCoordinates: (latitude: number, longitude: number) => void;
-	getForecast: (position: Coordinates) => void;
-	getCityInfo: (position: Coordinates) => void;
+	setCoordinates?: (latitude: number, longitude: number) => void;
+	getForecast?: (position: Coordinates, units?: string) => void;
+	getCityInfo?: (position: Coordinates) => void;
 };
 
 export type Actions =
