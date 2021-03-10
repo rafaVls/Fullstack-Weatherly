@@ -19,20 +19,20 @@ export default function Temperatures({ typeOfTemps, day }: Props) {
 		return (
 			<hgroup className={styles.temperatures}>
 				<h1>
-					{forecast.current.temp} {units}
+					{forecast.current.temp} {units.temp}
 				</h1>
 				<h2 title="Min temperature">
-					Min: {todaysTemperature.min} {units}
+					Min: {todaysTemperature.min} {units.temp}
 				</h2>
 				<h2 title="Max temperature">
-					Max: {todaysTemperature.max} {units}
+					Max: {todaysTemperature.max} {units.temp}
 				</h2>
 			</hgroup>
 		);
 	} else {
 		return (
 			<p>
-				{forecast.daily[day].temp.day} {units}
+				{forecast.daily[day].temp.day} {units.temp}
 			</p>
 		);
 	}

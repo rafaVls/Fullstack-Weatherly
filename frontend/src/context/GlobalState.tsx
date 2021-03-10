@@ -7,7 +7,7 @@ let initialState: State = {
 	longitude: null,
 	forecast: null,
 	cityInfo: null,
-	units: "°F"
+	units: { temp: "°F", wind: "mph" }
 };
 
 // Create context
@@ -34,7 +34,10 @@ export default function GlobalProvider({ children }: any) {
 		try {
 			const lat = position.latitude;
 			const lon = position.longitude;
-			const units = unitSystem === "imperial" ? "°F" : "°C";
+			const units =
+				unitSystem === "imperial"
+					? { temp: "°F", wind: "mph" }
+					: { temp: "°C", wind: "m/s" };
 
 			const res = await fetch(`/onecall/${lat}&${lon}&${unitSystem}`);
 			const { data } = await res.json();

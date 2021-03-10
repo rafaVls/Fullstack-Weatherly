@@ -23,12 +23,12 @@ export default function ForecastItems() {
 		},
 		{
 			id: 3,
-			data: `${currentForecast.wind_speed.toFixed(2)} mph`,
+			data: `${currentForecast.wind_speed.toFixed(2)} ${units.wind}`,
 			children: "Wind"
 		},
 		{
 			id: 4,
-			data: `${currentForecast.feels_like} ${units}`,
+			data: `${currentForecast.feels_like} ${units.temp}`,
 			children: "Feels like"
 		},
 		{
