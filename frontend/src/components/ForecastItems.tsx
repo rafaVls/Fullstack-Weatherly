@@ -6,7 +6,7 @@ import { unixToDate } from "../utils/format";
 import styles from "../styles/ForecastItems.module.css";
 
 export default function ForecastItems() {
-	const { forecast } = useContext(GlobalContext);
+	const { forecast, units } = useContext(GlobalContext);
 	const currentForecast = forecast.current;
 	const timezone = forecast.timezone;
 
@@ -28,7 +28,7 @@ export default function ForecastItems() {
 		},
 		{
 			id: 4,
-			data: `${currentForecast.feels_like} °F`,
+			data: `${currentForecast.feels_like} ${units}`,
 			children: "Feels like"
 		},
 		{
