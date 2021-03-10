@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import WeatherIcon from "./WeatherIcon";
 import Temperatures from "./Temperatures";
@@ -9,7 +9,7 @@ import styles from "../styles/MainContent.module.css";
 
 export default function MainContent() {
 	const { forecast, cityInfo } = useContext(GlobalContext);
-
+	const [cityName, setCityName] = useState("");
 	const currentWeather = forecast.current.weather[0];
 
 	return (
@@ -24,11 +24,20 @@ export default function MainContent() {
 			<form
 				onSubmit={e => {
 					e.preventDefault();
+					console.log(cityName);
 				}}
 			>
 				<label htmlFor="citySelector">Search by city: </label>
 				<section className={styles.searchBar}>
-					<input type="search" name="citySelector" placeholder="City name" />
+					<input
+						type="search"
+						name="citySelector"
+						placeholder="City name"
+						value={cityName}
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+							setCityName(e.target.value)
+						}
+					/>
 					<img
 						src="https://www.flaticon.com/svg/vstatic/svg/751/751463.svg?token=exp=1615415272~hmac=45e52b37a69adc42b18414867920397f"
 						alt="A magnifying glass"
