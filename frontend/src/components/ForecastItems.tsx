@@ -13,7 +13,7 @@ export default function ForecastItems() {
 	const forecastItems = [
 		{
 			id: 1,
-			data: `${forecast.hourly[0].pop * 100}%`,
+			data: `${(forecast.hourly[0].pop * 100).toFixed()}%`,
 			children: "Precipitation"
 		},
 		{
