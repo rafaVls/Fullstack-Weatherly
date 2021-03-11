@@ -49,6 +49,27 @@ export default function HamburgerMenu() {
 							°C
 						</button>
 					</section>
+					<br />
+					<div>
+						Search icon made by{" "}
+						<a
+							href="https://www.freepik.com"
+							title="Freepik"
+							rel="noreferrer"
+							target="_blank"
+						>
+							Freepik
+						</a>{" "}
+						from{" "}
+						<a
+							href="https://www.flaticon.com/"
+							title="Flaticon"
+							rel="noreferrer"
+							target="_blank"
+						>
+							www.flaticon.com
+						</a>
+					</div>
 				</section>
 			</div>
 		</nav>
