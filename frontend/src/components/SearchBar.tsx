@@ -1,0 +1,34 @@
+import React, { useState } from "react";
+
+import styles from "../styles/SearchBar.module.css";
+
+export default function SearchBar() {
+	const [cityName, setCityName] = useState("");
+
+	return (
+		<form
+			className={styles.searchForm}
+			onSubmit={e => {
+				e.preventDefault();
+				console.log(cityName);
+			}}
+		>
+			<label htmlFor="citySelector">Search by city: </label>
+			<section className={styles.searchBar}>
+				<input
+					type="search"
+					name="citySelector"
+					placeholder="City name"
+					value={cityName}
+					onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+						setCityName(e.target.value)
+					}
+				/>
+				<img
+					src="https://www.flaticon.com/svg/vstatic/svg/751/751463.svg?token=exp=1615415272~hmac=45e52b37a69adc42b18414867920397f"
+					alt="A magnifying glass"
+				/>
+			</section>
+		</form>
+	);
+}
