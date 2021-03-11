@@ -31,10 +31,7 @@ export default function SearchBar() {
 						setCityName(e.target.value)
 					}
 				/>
-				<img
-					src={`${process.env.PUBLIC_URL}/loupe.svg`}
-					alt="A magnifying glass"
-				/>
+				<button aria-label="search"></button>
 			</section>
 		</form>
 	);
