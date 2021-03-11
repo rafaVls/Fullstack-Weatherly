@@ -32,7 +32,7 @@ export default function SearchBar() {
 					}
 				/>
 				<img
-					src="https://www.flaticon.com/svg/vstatic/svg/751/751463.svg?token=exp=1615415272~hmac=45e52b37a69adc42b18414867920397f"
+					src={`${process.env.PUBLIC_URL}/loupe.svg`}
 					alt="A magnifying glass"
 				/>
 			</section>
