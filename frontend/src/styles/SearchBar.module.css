@@ -4,7 +4,7 @@
 }
 
 .searchBar input {
-	width: 100%;
+	width: 120%;
 	padding: 10px;
 
 	color: black;
@@ -24,8 +24,8 @@
 	box-shadow: -5px 5px 5px black;
 }
 
-.searchBar input:hover ~ img,
-.searchBar input:focus ~ img {
+.searchBar input:hover ~ button,
+.searchBar input:focus ~ button {
 	filter: invert(100%);
 }
 
@@ -58,14 +58,20 @@ input[type="search"]::-webkit-search-results-decoration {
 	display: none;
 }
 
-.searchBar img {
+.searchBar button {
 	position: absolute;
-	left: 9.25em;
-	top: 0.6em;
+	background-color: transparent;
+	background-image: url("../assets/loupe.svg");
+	background-repeat: no-repeat;
 
-	max-width: 25px;
-	height: auto;
-	transition: all 0.75s;
-
+	left: 95%;
+	top: 15%;
+	min-width: 30px;
+	min-height: 30px;
 	cursor: pointer;
+
+	border: none;
+	outline-offset: 0.25em;
+
+	transition: all 0.75s;
 }

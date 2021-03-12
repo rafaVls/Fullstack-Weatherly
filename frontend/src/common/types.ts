@@ -8,6 +8,7 @@ export type State = {
 	setCoordinates?: (latitude: number, longitude: number) => void;
 	getForecast?: (position: Coordinates, unitSystem?: string) => void;
 	getCityInfo?: (position: Coordinates) => void;
+	getCoordinates?: (cityName: string) => void;
 };
 
 export type Actions =
@@ -19,6 +20,7 @@ export type Actions =
 interface Units {
 	temp: string;
 	wind: string;
+	name: string;
 }
 
 export interface Coordinates {

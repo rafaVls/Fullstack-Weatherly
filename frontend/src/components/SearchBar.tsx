@@ -1,21 +1,24 @@
-import React, { useState } from "react";
+import React, { FormEvent, useContext, useState } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
 import styles from "../styles/SearchBar.module.css";
 
-//TODO:
-// Make a global function that uses reverse geolocation
-// and set that value to cityInfo on submit
 export default function SearchBar() {
+	const { getCoordinates } = useContext(GlobalContext);
 	const [cityName, setCityName] = useState("");
+	const regexPattern =
+		"[A-Za-z]+( [A-Za-z]+)?( [A-Za-z]+)?( [A-Za-z]+)?( [A-Za-z]+)?";
+
+	async function handleSubmit(e: FormEvent) {
+		e.preventDefault();
+
+		if (cityName.match(regexPattern)) {
+			getCoordinates(cityName.replaceAll(" ", "-"));
+		}
+	}
 
 	return (
-		<form
-			className={styles.searchForm}
-			onSubmit={e => {
-				e.preventDefault();
-				console.log(cityName);
-			}}
-		>
+		<form className={styles.searchForm} onSubmit={e => handleSubmit(e)}>
 			<label htmlFor="citySelector" aria-label="Search forecast by city name">
 				Search by city:{" "}
 			</label>
@@ -25,16 +28,13 @@ export default function SearchBar() {
 					name="citySelector"
 					placeholder="City name"
 					value={cityName}
-					pattern="[A-Za-z]+( [A-Za-z]+)?( [A-Za-z]+)?( [A-Za-z]+)?"
-					title="Only letters and spaces please."
+					pattern={regexPattern}
+					title="Only letters and spaces please, no commas."
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
 						setCityName(e.target.value)
 					}
 				/>
-				<img
-					src="https://www.flaticon.com/svg/vstatic/svg/751/751463.svg?token=exp=1615415272~hmac=45e52b37a69adc42b18414867920397f"
-					alt="A magnifying glass"
-				/>
+				<button aria-label="search"></button>
 			</section>
 		</form>
 	);
