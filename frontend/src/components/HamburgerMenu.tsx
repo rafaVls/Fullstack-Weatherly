@@ -1,5 +1,5 @@
 // The hamburger menu part of this
-// component was made by Erik Terwen
+// component was made by Erik Terwan
 // Codepen: https://codepen.io/erikterwan
 
 import React, { useContext } from "react";

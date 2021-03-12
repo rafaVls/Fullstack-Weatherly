@@ -11,32 +11,37 @@ function useLocationAndForecast() {
 		longitude,
 		forecast,
 		cityInfo,
+		units,
 		getForecast,
 		getCityInfo,
 		setCoordinates
 	} = useContext(GlobalContext);
 
 	useEffect(() => {
-		navigator.geolocation.getCurrentPosition(
-			pos => {
-				const coordinates = pos.coords;
-				const { latitude, longitude } = coordinates;
-				setCoordinates(latitude, longitude);
-			},
-			err => {
-				console.warn(`Error(${err.code}): ${err.message}`);
-			},
-			{
-				enableHighAccuracy: true,
-				timeout: 10000,
-				maximumAge: 0
-			}
-		);
+		// Making sure this doesn't run if we're setting the coordinates
+		// manually through SearchBar
+		if (latitude == null || longitude == null) {
+			navigator.geolocation.getCurrentPosition(
+				pos => {
+					const coordinates = pos.coords;
+					const { latitude, longitude } = coordinates;
+					setCoordinates(latitude, longitude);
+				},
+				err => {
+					console.warn(`Error(${err.code}): ${err.message}`);
+				},
+				{
+					enableHighAccuracy: true,
+					timeout: 10000,
+					maximumAge: 0
+				}
+			);
+		}
 
 		if (latitude && longitude) {
 			const coordinates = { latitude, longitude };
 
-			getForecast(coordinates);
+			getForecast(coordinates, units.name);
 			getCityInfo(coordinates);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps

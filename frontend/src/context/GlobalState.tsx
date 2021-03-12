@@ -7,7 +7,7 @@ let initialState: State = {
 	longitude: null,
 	forecast: null,
 	cityInfo: null,
-	units: { temp: "°F", wind: "mph" }
+	units: { temp: "°F", wind: "mph", name: "imperial" }
 };
 
 // Create context
@@ -30,14 +30,14 @@ export default function GlobalProvider({ children }: any) {
 	async function getForecast(
 		position: Coordinates,
 		unitSystem: string = "imperial"
-	) {
+	): Promise<void> {
 		try {
 			const lat = position.latitude;
 			const lon = position.longitude;
 			const units =
 				unitSystem === "imperial"
-					? { temp: "°F", wind: "mph" }
-					: { temp: "°C", wind: "m/s" };
+					? initialState.units
+					: { temp: "°C", wind: "m/s", name: "metric" };
 
 			const res = await fetch(`/onecall/${lat}&${lon}&${unitSystem}`);
 			const { data } = await res.json();
@@ -55,7 +55,7 @@ export default function GlobalProvider({ children }: any) {
 		}
 	}
 
-	async function getCityInfo(position: Coordinates) {
+	async function getCityInfo(position: Coordinates): Promise<void> {
 		try {
 			const lat = position.latitude;
 			const lon = position.longitude;
@@ -75,6 +75,21 @@ export default function GlobalProvider({ children }: any) {
 		}
 	}
 
+	async function getCoordinates(cityName: string): Promise<void> {
+		try {
+			const cityNameDashed = cityName.replace(" ", "-");
+
+			const res = await fetch(`/geocoding/${cityNameDashed}`);
+			const { data } = await res.json();
+			setCoordinates(data.latitude, data.longitude);
+		} catch (error) {
+			dispatch({
+				type: "ERROR",
+				error: error
+			});
+		}
+	}
+
 	return (
 		<GlobalContext.Provider
 			value={{
@@ -84,6 +99,7 @@ export default function GlobalProvider({ children }: any) {
 				cityInfo: state.cityInfo,
 				units: state.units,
 				setCoordinates,
+				getCoordinates,
 				getForecast,
 				getCityInfo
 			}}
