@@ -40,7 +40,7 @@ router.get("/reverse/:lat(-?[0-9]{0,2}[\.]?[0-9]{1,100})&:lon(-?[0-9]{1,3}[\.]?[
 	}
 });
 
-router.get("/geocoding/:cityName([A-Za-z]+((-[A-Za-z]+){0,3})?)", async (req, res) => {
+router.get("/geocoding/:cityName([A-Za-z]+((-[A-Za-z]+){0,4})?)", async (req, res) => {
 	try {
 		const response = await fetch(
 			`https://maps.googleapis.com/maps/api/geocode/json?address=${req.params.cityName}&key=${process.env.GEOCODING_API_KEY}`

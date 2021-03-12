@@ -4,7 +4,7 @@
 }
 
 .searchBar input {
-	width: 100%;
+	width: 120%;
 	padding: 10px;
 
 	color: black;
@@ -64,7 +64,7 @@ input[type="search"]::-webkit-search-results-decoration {
 	background-image: url("../assets/loupe.svg");
 	background-repeat: no-repeat;
 
-	left: 75%;
+	left: 95%;
 	top: 15%;
 	min-width: 30px;
 	min-height: 30px;
