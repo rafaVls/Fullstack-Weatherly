@@ -21,13 +21,9 @@
 	list-style: none;
 }
 
-@media only screen and (max-width: 560px) {
-	.mainContent {
-		padding: 5%;
-		justify-content: space-between;
-	}
-
+@media only screen and (max-width: 640px) {
 	.dataContainer {
 		padding: 0;
+		margin-top: 50px;
 	}
 }
