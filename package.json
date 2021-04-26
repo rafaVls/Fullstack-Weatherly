@@ -4,8 +4,9 @@
 	"description": "Backend for weather app made with Express",
 	"main": "server.ts",
 	"scripts": {
-		"start": "node server.ts",
-		"server": "nodemon server.ts"
+		"start": "ts-node server.ts",
+		"server": "nodemon server.ts",
+		"build": "tsc && cd frontend/ && npm run build"
 	},
 	"author": "Rafael Avilés",
 	"license": "MIT",
