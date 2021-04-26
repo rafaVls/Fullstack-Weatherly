@@ -1,6 +1,5 @@
-const express = require("express");
+const router = require("express").Router();
 const fetch = require("node-fetch");
-const router = express.Router();
 
 router.get("/onecall/:lat(-?[0-9]{0,2}[\.]?[0-9]{1,100})&:lon(-?[0-9]{1,3}[\.]?[0-9]{1,100})&:units([A-Z]+)", async (req, res) => {
 	try {
