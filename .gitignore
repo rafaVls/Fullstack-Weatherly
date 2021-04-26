@@ -4,7 +4,6 @@ config.env
 
 #production
 build/
-Procfile
 
 #misc
 .DS_Store
