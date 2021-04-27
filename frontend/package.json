@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"start": "react-scripts start",
-		"build": "react-scripts build"
+		"build": "NODE_ENV=production node_modules/react-scripts/bin/react-scripts.js build"
 	},
 	"author": "Rafael Avilés",
 	"license": "MIT",
