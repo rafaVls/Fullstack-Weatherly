@@ -4,7 +4,7 @@
 	"description": "Backend for weather app made with Express",
 	"main": "server.ts",
 	"scripts": {
-		"start": "node build/server.js",
+		"start": "NODE_ENV=production node build/server.js",
 		"server": "nodemon server.ts",
 		"build": "cd frontend/ && npm run build && cd .. && tsc"
 	},
