@@ -4,8 +4,7 @@
 	"private": true,
 	"scripts": {
 		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"heroku-postbuild": "cd frontend/ && npm install --only=dev && NODE_ENV=development npm install --no-shrinkwrap && npm run build"
+		"build": "react-scripts build"
 	},
 	"author": "Rafael Avilés",
 	"license": "MIT",
